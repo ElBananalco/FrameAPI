@@ -30,7 +30,7 @@ public class TestMethods {
 			
 			break;
 		case "get":
-			Response resp2 = RestAssured.given().header("content-type", "application/json").get();
+			Response resp2 = RestAssured.given().get();
 			validationCode(Obj.getExpected(),resp2.statusCode(),Obj.getNameTC());
 			
 			break;

@@ -25,8 +25,10 @@ public class Runner extends TestCase{
 			ArrayList<TestData> ListaTemp = new ArrayList();
 			
 			//Asignamos la URI de la pagina
-			String URL = "https://restool-sample-app.herokuapp.com/api/";
-			String  PATH ="employee";
+			String URL = "https://scrum-metrics.herokuapp.com/api";
+			
+			
+			String  PATH ="postuser";
 			
 			//Inicializamos la clase 
 			run.classSetup(URL, PATH);
