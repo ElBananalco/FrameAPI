@@ -25,7 +25,9 @@ public class TestMethods {
 		switch(Obj.getAccion().toLowerCase()) {
 			
 		case "post":
-			Response resp = RestAssured.given().header("content-type", "application/json").body(Obj.getBody()).post();
+			Response resp = RestAssured.given().header("Accept", "application/json")
+			.header("content-type", "application/json")
+			.body(Obj.getBody()).post();
 			validationCode(Obj.getExpected(),resp.statusCode(),Obj.getNameTC());
 			
 			break;
