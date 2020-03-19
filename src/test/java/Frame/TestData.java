@@ -5,12 +5,14 @@ public class TestData {
 	public String body;
 	public int expected;
 	public String nameTC;
+	public String path;
 	
-	public TestData(String nameTC, String accion, String body, int expected) {
+	public TestData(String nameTC, String accion, String body, int expected,String path) {
 		this.accion=accion;
 		this.body=body;
 		this.expected=expected;
 		this.nameTC=nameTC;
+		this.path=path;
 	}
 	
 	public TestData(String nameTC) {
@@ -24,6 +26,14 @@ public class TestData {
 
 	public void setAccion(String accion) {
 		this.accion = accion;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	public String getBody() {
@@ -52,7 +62,8 @@ public class TestData {
 
 	@Override
 	public String toString() {
-		return "TestData [accion=" + accion + ", body=" + body + ", expected=" + expected + ", nameTC=" + nameTC + "]";
+		return "TestData [accion=" + accion + ", body=" + body + ", expected=" + expected + ", nameTC=" + nameTC
+				+ ", path=" + path + "]";
 	}
 
 	

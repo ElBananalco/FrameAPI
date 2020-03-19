@@ -43,7 +43,7 @@ public class leer {
 		
 		TestData aux;
 		
-		String Body = "",accion="",nameTc="";
+		String Body = "",accion="",nameTc="",path="";
 				double expected=0.0;
 				int exp=0;
 		
@@ -81,6 +81,11 @@ public class leer {
 							//System.out.print(exp);
 							break;
 
+						case 4:
+							path = row.getCell(c).getStringCellValue();
+							//System.out.print(path);
+							break;
+
 
 						}
 					}
@@ -89,7 +94,7 @@ public class leer {
 			}
 			
 			
-			aux = new TestData(nameTc,accion,Body,exp);
+			aux = new TestData(nameTc,accion,Body,exp,path);
 		
 			TC.add(aux);		
 			
@@ -97,6 +102,7 @@ public class leer {
 			accion = "";
 			Body="";
 			exp=0;
+			path="";
 		}
 		//System.out.print(TC.toString());
 		 }
@@ -133,7 +139,7 @@ public class leer {
 		
 		TestData auxN;
 		
-		String Body = "",accion="",nameTc="";
+		String Body = "",accion="",nameTc="",path="";
 		double expected=0.0;
 		int exp=0;
 				
@@ -171,6 +177,11 @@ public class leer {
 							exp = (int)expected;
 							//System.out.print(exp);
 							break;
+							
+						case 4:
+							path = row.getCell(c).getStringCellValue();
+							//System.out.print(path);
+							break;
 
 
 						}
@@ -180,7 +191,7 @@ public class leer {
 			}
 			
 			
-			auxN = new TestData(nameTc,accion,Body,exp);
+			auxN = new TestData(nameTc,accion,Body,exp,path);
 			
 			Names.add(auxN);		
 			
@@ -189,6 +200,7 @@ public class leer {
 			accion = "";
 			Body="";
 			exp=0;
+			path="";
 			
 		}
 		//System.out.print(TC.toString());

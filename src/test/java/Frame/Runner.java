@@ -25,14 +25,6 @@ public class Runner extends TestCase {
 		// Aqui se agregaran los TC que seleccionemos
 		ArrayList<TestData> ListaTemp = new ArrayList();
 
-		// Asignamos la URI de la pagina
-		String URL = "https://scrum-metrics.herokuapp.com/api";
-
-		String PATH = "postuser";
-
-		// Inicializamos la clase
-		run.classSetup(URL, PATH);
-
 		// creamos TC para leer el archivo Xlsx
 		leer TC = new leer();
 
@@ -53,6 +45,7 @@ public class Runner extends TestCase {
 		// se guardan los datos el excel a un arraylist
 		ListaObjetosTestC = TC.obtenerObjetos(ruta);
 
+		
 		// este arreglo guarda los nombres de los TC
 		String[] prueba = new String[ListaObjetosTestC.size()];
 
@@ -120,9 +113,20 @@ public class Runner extends TestCase {
 			} else {
 				// el metdodo obtenerTC carga al array la hoja que le mandamos
 				ListaTemp = TC.obtenerTC(ruta, cad[sheet]);
+				
 			}
 
 		}
+		
+		// Asignamos la URI de la pagina
+				String URL = "https://scrum-metrics.herokuapp.com/api";
+				String PATH = ListaTemp.get(1).getPath();
+				
+			
+
+				// Inicializamos la clase----------------------------------------------------------------
+				run.classSetup(URL, PATH);
+				
 
 		// ejecutamos
 		for (int q = 0; q < ListaTemp.size(); q++) {

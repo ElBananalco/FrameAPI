@@ -32,10 +32,12 @@ public class TestMethods {
 			
 			break;
 		case "get":
+			RestAssured.basePath = "usersquery";
 			Response resp2 = RestAssured.given().get();
-			validationCode(Obj.getExpected(),resp2.statusCode(),Obj.getNameTC());
-			
+			validationCode(Obj.getExpected(),resp2.statusCode(),Obj.getNameTC());			
 			break;
+			
+			
 		
 		}
 
