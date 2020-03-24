@@ -16,26 +16,34 @@ public class TestMethods {
 			System.out.print(e.getMessage());
 		}
 	}
-
 	
+	public static int code;  
+	public static int expected;
+	 
 	@Test
-	public void executionFile(TestData Obj) {
-		
-		int code,expected;
+	public String executionFile(TestData Obj) {
+		String statuscode="";
+	
 		switch(Obj.getAccion().toLowerCase()) {
 			
 		case "post":
 			Response resp = RestAssured.given().header("Accept", "application/json")
 			.header("content-type", "application/json")
 			.body(Obj.getBody()).post();
-			validationCode(Obj.getExpected(),resp.statusCode(),Obj.getNameTC());
-			
-			break;
+			code = resp.statusCode();
+			expected = Obj.getExpected();
+			//statuscode= validationCode();
+			statuscode=resp.getBody().asString();
+         	return statuscode;
 		case "get":
 			RestAssured.basePath = "usersquery";
 			Response resp2 = RestAssured.given().get();
-			validationCode(Obj.getExpected(),resp2.statusCode(),Obj.getNameTC());			
-			break;
+			code = resp2.statusCode();
+			expected = Obj.getExpected();
+			statuscode= validationCode();
+         	return statuscode;
+         	
+         	default: return "error desconocido";
 			
 			
 		
@@ -43,20 +51,27 @@ public class TestMethods {
 
 	}
 	
-	public void validationCode(int expected, int code, String name) {
+	public String validationCode() {
 		if(expected==code) {
+			String result="";
+			//System.out.println("Test Case Pass "+name);
+//			System.out.println("Status code expected is "+expected);
+//			System.out.println("Status code is "+code);
+			result="Pass";
 			
-			System.out.println("Test Case Pass "+name);
-			System.out.println("Status code expected is "+expected);
-			System.out.println("Status code is "+code);
+			return result;
 		}else {
-			System.out.println("Test Case Fail "+name);
-			System.out.println("Status code expected is "+expected);
-			System.out.println("Status code is "+code);
+			String result="";
+//			System.out.println("Test Case Fail "+name);
+//			System.out.println("Status code expected is "+expected);
+//			System.out.println("Status code is "+code);
+			result="Fail";
+			
+			return result;
 		}
 		
 	}
- 
+	
 	public String testCases(TestData Obj){
 		String sheet="";
 		if( Obj.getNameTC()=="") {

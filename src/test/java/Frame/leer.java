@@ -18,7 +18,7 @@ public class leer {
 	static ArrayList<TestData> Names = new ArrayList();
 	static XSSFRow row;
 
-	@Test
+	@Test 
 	public ArrayList<TestData> obtenerObjetos(String URL) throws IOException {
 
 		FileInputStream fis = new FileInputStream(new File(URL));
@@ -33,10 +33,10 @@ public class leer {
 		 for(int i = 0;i<Hojas;i++) {
 			 spreadsheet = workbook.getSheetAt(i);
 		 
+ 
 
-
-		int rows=2;
-		//rows = spreadsheet.getLastRowNum();
+		int rows=0;
+		rows = spreadsheet.getLastRowNum()+1;
 
 		// Obtengo el número de columnas ocupadas en la hoja
 		int cols = 0;
@@ -49,11 +49,13 @@ public class leer {
 		
 		for (int r = 0; r < rows; r++) {
 			row = spreadsheet.getRow(r);
-
+			if(row.getLastCellNum()==0) {
+			System.out.print("Aqui");
+			}
 			for (int c = 0; c < (cols = row.getLastCellNum()); c++) {
 
 				if (row.getCell(c) == null) {
-
+					break;
 				} else {
 					if (r > 0) {
 						switch (c) {
@@ -95,14 +97,21 @@ public class leer {
 			
 			
 			aux = new TestData(nameTc,accion,Body,exp,path);
-		
-			TC.add(aux);		
+			if(aux.getNameTC()=="") {
+				
+			}else {
+				TC.add(aux);		
+				
+				nameTc="";
+				accion = "";
+				Body="";
+				exp=0;
+				path="";
+				
+			}
+				
 			
-			nameTc="";
-			accion = "";
-			Body="";
-			exp=0;
-			path="";
+			
 		}
 		//System.out.print(TC.toString());
 		 }
@@ -131,8 +140,8 @@ public class leer {
 		 
 
 
-		int rows=2;
-		//rows = spreadsheet.getLastRowNum();
+		int rows=0;
+		 rows = spreadsheet.getLastRowNum()+1;
 
 		// Obtengo el número de columnas ocupadas en la hoja
 		int cols = 0;
@@ -192,9 +201,10 @@ public class leer {
 			
 			
 			auxN = new TestData(nameTc,accion,Body,exp,path);
-			
-			Names.add(auxN);		
-			
+			if(auxN.getNameTC()=="") {
+					
+			}else
+				Names.add(auxN);
 			
 			nameTc="";
 			accion = "";

@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import Report.OpenHtml;
+import Report.reportMethod;
 import junit.framework.TestCase;
 
 public class Runner extends TestCase {
@@ -53,15 +55,19 @@ public class Runner extends TestCase {
 		JRadioButton[] radio = new JRadioButton[ListaObjetosTestC.size()];
 
 		// este for guardara los nombres TC en el arreglo prueba
-		for (int x = 1; x < ListaObjetosTestC.size(); x++) {
-
-			if (ListaObjetosTestC.get(x) == null) {
-
-			} else
+		for (int x = 0; x < ListaObjetosTestC.size(); x++) {
+			
+	
 				// se guardan los nombres TC
 				prueba[x] = run.testCases(ListaObjetosTestC.get(x));
+			
 
 		}
+		
+		
+		
+
+		
 
 		String name = "";
 		// creamos la pantalla
@@ -79,7 +85,7 @@ public class Runner extends TestCase {
 		// los
 		// nonbres de los TC
 		for (int u = 0; u < prueba.length; u++) {
-			u++;
+			
 			name = prueba[u];
 			JRadioButton button = new JRadioButton(name);
 			radio[u] = button;
@@ -98,42 +104,49 @@ public class Runner extends TestCase {
 		// este for recorre el arreglo de los radio buttons para checar quien fue
 		// seleccionado
 		for (int t = 0; t < radio.length; t++) {
-			t++;
+			
 			// preguntamos si fue seleccionado
 			if (radio[t].isSelected()) {
 				// guardamos el nombre del TC en el arreglo cad
 				cad[t] = radio[t].getLabel();
+				
 			}
 		}
-
+		
+		 OpenHtml openHtml=new OpenHtml();
+		 reportMethod report= new reportMethod();
+		
 		// juntamos los TC seleccionados en el arraylist
 		for (int sheet = 0; sheet < cad.length; sheet++) {
+			
 			if (cad[sheet] == null) {
 
 			} else {
 				// el metdodo obtenerTC carga al array la hoja que le mandamos
 				ListaTemp = TC.obtenerTC(ruta, cad[sheet]);
-				
+			
 			}
 
 		}
+	
 		
 		// Asignamos la URI de la pagina
 				String URL = "https://scrum-metrics.herokuapp.com/api";
-				String PATH = ListaTemp.get(1).getPath();
+				String PATH = ListaTemp.get(0).getPath();
 				
 			
 
 				// Inicializamos la clase----------------------------------------------------------------
 				run.classSetup(URL, PATH);
 				
+					
 
-		// ejecutamos
-		for (int q = 0; q < ListaTemp.size(); q++) {
+		
+		report.reportMaker(ListaTemp);
+		/**Opens the report*/
 
-			run.executionFile(ListaTemp.get(q));
-		}
-
-	}
+		openHtml.OpenHtml();
+	
+}
 
 }
