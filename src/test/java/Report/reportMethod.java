@@ -67,7 +67,7 @@ public class reportMethod {
 		    	 		"<td>" + run.validationCode() + "</td>"+ 
 		    	 		"<td align=\"justify\">" + stepList.get(i).body + "</td>" + 
 		    	 		"<td>" + stepList.get(i).path + "</td>"	+ 
-		    	 		"<td>" + statusCode + "</td>"
+		    	 		"<td align=\\\"justify\\\">" + statusCode + "</td>"
 		    	 		//"<td>" + run.validationCode() + "</td>"
 		    	 		);
 		    	 //here verifies if an step passed or not 
