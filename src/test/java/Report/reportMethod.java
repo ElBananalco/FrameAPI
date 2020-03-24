@@ -19,7 +19,7 @@ public class reportMethod {
 		//A printer is created
 		try{
 			//declare the file location
-		     filewriter = new FileWriter("C:\\Users\\jorge\\eclipse-workspace\\01\\src\\test\\java\\Reporthtl\\"+tcname+".html");
+		     filewriter = new FileWriter("src/test/java/Reporthtl/"+tcname+".html");
 		     //Create a print object to write the html code
 		     printw = new PrintWriter(filewriter);
 		     //Initialize the html doc 
@@ -65,7 +65,7 @@ public class reportMethod {
 		    	 printw.println("<th scope=\"row\">" + stepList.get(i).nameTC + "</th>"+ 
 		    			 "<th scope=\"row\">" + stepList.get(i).expected + "/" + stepList.get(i).accion + "</th>"+ 
 		    	 		"<td>" + run.validationCode() + "</td>"+ 
-		    	 		"<td>" + stepList.get(i).body + "</td>" + 
+		    	 		"<td align=\"justify\">" + stepList.get(i).body + "</td>" + 
 		    	 		"<td>" + stepList.get(i).path + "</td>"	+ 
 		    	 		"<td>" + statusCode + "</td>"
 		    	 		//"<td>" + run.validationCode() + "</td>"
