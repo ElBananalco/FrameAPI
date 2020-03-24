@@ -5,8 +5,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class OpenHtml {
-	public File objectfile = new File ("C:\\Users\\jorge\\eclipse-workspace\\01\\src\\test\\java\\Reporthtl\\reporte.html");
-	public void OpenHtml() throws IOException {
+	
+	public void OpenHtml(String nombreTC) throws IOException {
+	File objectfile = new File ("C:\\Users\\jorge\\eclipse-workspace\\01\\src\\test\\java\\Reporthtl\\" + nombreTC + ".html");
 		 Desktop.getDesktop().open(objectfile);
 	}
 }

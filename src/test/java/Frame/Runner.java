@@ -145,7 +145,7 @@ public class Runner extends TestCase {
 		report.reportMaker(ListaTemp);
 		/**Opens the report*/
 
-		openHtml.OpenHtml();
+		openHtml.OpenHtml(ListaTemp.get(0).getNameTC());
 	
 }
 

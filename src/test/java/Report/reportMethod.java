@@ -14,10 +14,12 @@ public class reportMethod {
 	 PrintWriter printw = null;
 	 //We create a method to create a report
 	public void reportMaker(ArrayList<TestData> stepList) {
+		String tcname="";
+		tcname=stepList.get(0).nameTC;
 		//A printer is created
 		try{
 			//declare the file location
-		     filewriter = new FileWriter("C:\\Users\\jorge\\eclipse-workspace\\01\\src\\test\\java\\Reporthtl\\reporte.html");
+		     filewriter = new FileWriter("C:\\Users\\jorge\\eclipse-workspace\\01\\src\\test\\java\\Reporthtl\\"+tcname+".html");
 		     //Create a print object to write the html code
 		     printw = new PrintWriter(filewriter);
 		     //Initialize the html doc 
