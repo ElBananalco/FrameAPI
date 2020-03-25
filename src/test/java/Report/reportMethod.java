@@ -68,14 +68,8 @@ public class reportMethod {
 		    	 		"<td align=\"justify\">" + stepList.get(i).body + "</td>" + 
 		    	 		"<td>" + stepList.get(i).path + "</td>"	+ 
 		    	 		"<td align=\\\"justify\\\">" + statusCode + "</td>"
-		    	 		//"<td>" + run.validationCode() + "</td>"
 		    	 		);
-		    	 //here verifies if an step passed or not 
-//		    	 if(stepList.get(i).isPass() == true) {
-//		    		 printw.println("<td><span><img src=\"../img/pass-icon.png\" height=\"30\" width=\"30\"></span></td>");
-//		    	 }else {
-//		    		 printw.println("<td><span><img src=\"../img/failed-icon.png\" height=\"30\" width=\"30\"></span></td>");
-//		    	 }
+		    	
 		    	 		
 		    	 	printw.println(""
 		    	 			

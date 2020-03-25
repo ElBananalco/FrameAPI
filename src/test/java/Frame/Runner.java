@@ -48,23 +48,24 @@ public class Runner extends TestCase {
 		ListaObjetosTestC = TC.obtenerObjetos(ruta);
 
 		
-		// este arreglo guarda los nombres de los TC
-		String[] prueba = new String[ListaObjetosTestC.size()];
+		// este arreglo guarda los nombres de los TC de las hojas del excel
+		String[] prueba ;
+		prueba=TC.getSheetsNames(ruta);
 
 		// creamos un arreglo de radiobuttons
 		JRadioButton[] radio = new JRadioButton[ListaObjetosTestC.size()];
 
-		// este for guardara los nombres TC en el arreglo prueba
-		for (int x = 0; x < ListaObjetosTestC.size(); x++) {
-			
-	
-				// se guardan los nombres TC
-				prueba[x] = run.testCases(ListaObjetosTestC.get(x));
-			
-
-		}
-		
-		
+//		// este for guardara los nombres TC en el arreglo prueba
+//		for (int x = 0; x < ListaObjetosTestC.size(); x++) {
+//			
+//	
+//				// se guardan los nombres TC
+//				prueba[x] = run.testCases(ListaObjetosTestC.get(x));
+//			
+//
+//		}
+//		
+//		
 		
 
 		
@@ -81,17 +82,21 @@ public class Runner extends TestCase {
 		// Se le asigna una posición dentro del Jpanel
 		panel.setBounds(10, 10, 375, 150);
 
-		// en este for recorremos el arrego de prueba para crear los radio button con
+		// en este for recorremos el arreglo de prueba para crear los radio button con
 		// los
 		// nonbres de los TC
 		for (int u = 0; u < prueba.length; u++) {
 			
 			name = prueba[u];
+			
+			if(name != null) {
 			JRadioButton button = new JRadioButton(name);
 			radio[u] = button;
 
 			// agregamos el radiobutton al panel
-			panel.add(radio[u]);
+			panel.add(radio[u]);}
+			else {}
+			
 
 		}
 
@@ -132,6 +137,7 @@ public class Runner extends TestCase {
 		
 		// Asignamos la URI de la pagina
 				String URL = "https://scrum-metrics.herokuapp.com/api";
+				//Obtenemos el PATH del excel
 				String PATH = ListaTemp.get(0).getPath();
 				
 			
@@ -141,10 +147,9 @@ public class Runner extends TestCase {
 				
 					
 
-		
+		//Enviamos la lista con los TC selecionados para que se ejecuten y genere un reporte
 		report.reportMaker(ListaTemp);
 		/**Opens the report*/
-
 		openHtml.OpenHtml(ListaTemp.get(0).getNameTC());
 	
 }

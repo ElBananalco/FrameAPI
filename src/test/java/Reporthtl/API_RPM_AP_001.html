@@ -1,0 +1,31 @@
+<html>
+<head><title>Reporte</title> <link rel="icon" href="../img/Thanos.png" /><link rel="stylesheet" href="../css/bootstrap.min.css"><link rel="stylesheet" href="../css/estilos.css"><script src="../js/jquery-3.4.1.min.js"></script><script src="../js/bootstrap.min.js"></script></head>
+<body>
+<nav class="navbar-custom">    <a class="navbar-brand" href="#">      <img src="../img/iconfinder_JD-27_2624867.png" width="40" height="40" class="d-inline-block align-top">      Thanos Framework    </a>  </nav>
+ <div>    <table class="table table-hover">        <thead>          <tr>            <th scope="col">Test Case Name</th>            <th scope="col">Expected/Accion</th>            <th scope="col">Status</th>            <th>Body</th>            <th>Path</th>			<th>Status Code Return</th>          </tr>        </thead>
+<tbody><tr>
+<th scope="row">API_RPM_AP_001</th><th scope="row">200/post</th><td>Pass</td><td align="justify">{"projid":1,"user":40,"role":"ScrumMaster"}</td><td>postmember</td><td align=\"justify\">{"error":false,"code":200,"message":"Member added succesfully."}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_RPM_AP_002</th><th scope="row">200/post</th><td>Pass</td><td align="justify">{"projid":4,"user":40,"role":"TeamMember"}</td><td>postmember</td><td align=\"justify\">{"error":false,"code":200,"message":"Member added succesfully."}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_RPM_AP_003</th><th scope="row">200/post</th><td>Pass</td><td align="justify">{"projid":2,"user":40,"role":"Product Owner"}</td><td>postmember</td><td align=\"justify\">{"error":false,"code":200,"message":"Member added succesfully."}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_RPM_AP_004</th><th scope="row">200/post</th><td>Pass</td><td align="justify">{"projid":1,"user":40,"role":"TeamMember"}</td><td>postmember</td><td align=\"justify\">{"error":false,"code":200,"message":"Member added succesfully."}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_RPM_AN_005</th><th scope="row">404/post</th><td>Fail</td><td align="justify">{"projid":2,"user":40,"role":"ScrumMaster"}</td><td>postmember</td><td align=\"justify\">{"error":false,"code":200,"message":"Member added succesfully."}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_RPM_AN_006</th><th scope="row">404/post</th><td>Fail</td><td align="justify">{"projid":2,"user":40,"role":"TeamMember"}</td><td>postmember</td><td align=\"justify\">{"error":false,"code":200,"message":"Member added succesfully."}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_RPM_AN_006</th><th scope="row">400/post</th><td>Fail</td><td align="justify">{"projid":2,"user":40,"role":""}</td><td>postmember</td><td align=\"justify\">{"error":false,"code":200,"message":"Member added succesfully."}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_RPM_AP_008</th><th scope="row">400/post</th><td>Fail</td><td align="justify">{"projid":1,"user":40,"role":"ScrumMaster"}</td><td>postmember</td><td align=\"justify\">{"error":false,"code":200,"message":"Member added succesfully."}</td>
+</div>
+</body>
+</html>

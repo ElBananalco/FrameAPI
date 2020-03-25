@@ -28,12 +28,10 @@ public class leer {
 		 int Hojas = workbook.getNumberOfSheets(); 
 			XSSFSheet spreadsheet;
 			
-			//recorremos las hojas-------------------------
-			//se recorrera con el tama;o del array de sheets
+			
 		 for(int i = 0;i<Hojas;i++) {
 			 spreadsheet = workbook.getSheetAt(i);
-		 
- 
+	 
 
 		int rows=0;
 		rows = spreadsheet.getLastRowNum()+1;
@@ -50,7 +48,7 @@ public class leer {
 		for (int r = 0; r < rows; r++) {
 			row = spreadsheet.getRow(r);
 			if(row.getLastCellNum()==0) {
-			System.out.print("Aqui");
+			
 			}
 			for (int c = 0; c < (cols = row.getLastCellNum()); c++) {
 
@@ -120,7 +118,23 @@ public class leer {
 		return TC;
 
 	}
-	
+	////////////////////////////////////////
+	public String[] getSheetsNames(String URL) throws IOException {
+		 
+		 FileInputStream fis = new FileInputStream(new File(URL));
+
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			
+			 int Hojas = workbook.getNumberOfSheets(); 
+			 String[] Sheetname = new String[Hojas];
+			
+				
+				
+			 for(int i = 0;i<Hojas;i++) {
+				 Sheetname[i]= workbook.getSheetName(i);
+			 }
+		 return Sheetname;
+	 }
 	
 	//////////////////////////////////////////
 	@Test
