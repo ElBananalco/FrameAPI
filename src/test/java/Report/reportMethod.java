@@ -57,9 +57,19 @@ public class reportMethod {
 		     		);
 		     //All the steps from their respective test cases are printed by a for cycle
 		     TestMethods run = new TestMethods();
+		  // Asignamos la URI de la pagina
+				String URL = "https://scrum-metrics.herokuapp.com/api";
+				
+					
 		     
 		     for(int i = 0; i < stepList.size(); i++)
 		     {	 String statusCode="";    
+		   //Obtenemos el PATH del excel
+				String PATH = stepList.get(i).getPath();
+			
+				// Inicializamos la clase----------------------------------------------------------------
+				run.classSetup(URL, PATH);
+				
 		    	statusCode = run.executionFile(stepList.get(i));
 		    	 printw.println("<tbody>" + "<tr>");
 		    	 printw.println("<th scope=\"row\">" + stepList.get(i).nameTC + "</th>"+ 
@@ -67,7 +77,7 @@ public class reportMethod {
 		    	 		"<td>" + run.validationCode() + "</td>"+ 
 		    	 		"<td align=\"justify\">" + stepList.get(i).body + "</td>" + 
 		    	 		"<td>" + stepList.get(i).path + "</td>"	+ 
-		    	 		"<td align=\\\"justify\\\">" + statusCode + "</td>"
+		    	 		"<td align=\"justify\">" + statusCode + "</td>"
 		    	 		);
 		    	
 		    	 		

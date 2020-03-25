@@ -19,7 +19,7 @@ public class TestMethods {
 	
 	public static int code;  
 	public static int expected;
-	 
+	public static String path; 
 	@Test
 	public String executionFile(TestData Obj) {
 		String statuscode="";
@@ -32,6 +32,7 @@ public class TestMethods {
 			.body(Obj.getBody()).post();
 			code = resp.statusCode();
 			expected = Obj.getExpected();
+			path=Obj.getPath();
 			statuscode=resp.getBody().asString();
          	return statuscode;
 		case "get":
@@ -40,14 +41,17 @@ public class TestMethods {
 			code = resp2.statusCode();
 			expected = Obj.getExpected();
 			statuscode= validationCode();
+			path=Obj.getPath();
          	return statuscode;
          	
 		case "put":
+			path=Obj.getPath();
 			Response resp3 = RestAssured.given().header("Accept", "application/json")
 			.header("content-type", "application/json")
 			.body(Obj.getBody()).put();
 			code = resp3.statusCode();
 			expected = Obj.getExpected();
+			
 			statuscode=resp3.getBody().asString();
          	return statuscode;
          	

@@ -55,17 +55,6 @@ public class Runner extends TestCase {
 		// creamos un arreglo de radiobuttons
 		JRadioButton[] radio = new JRadioButton[ListaObjetosTestC.size()];
 
-//		// este for guardara los nombres TC en el arreglo prueba
-//		for (int x = 0; x < ListaObjetosTestC.size(); x++) {
-//			
-//	
-//				// se guardan los nombres TC
-//				prueba[x] = run.testCases(ListaObjetosTestC.get(x));
-//			
-//
-//		}
-//		
-//		
 		
 
 		
@@ -135,17 +124,7 @@ public class Runner extends TestCase {
 		}
 	
 		
-		// Asignamos la URI de la pagina
-				String URL = "https://scrum-metrics.herokuapp.com/api";
-				//Obtenemos el PATH del excel
-				String PATH = ListaTemp.get(0).getPath();
-				
-			
-
-				// Inicializamos la clase----------------------------------------------------------------
-				run.classSetup(URL, PATH);
-				
-					
+		
 
 		//Enviamos la lista con los TC selecionados para que se ejecuten y genere un reporte
 		report.reportMaker(ListaTemp);
