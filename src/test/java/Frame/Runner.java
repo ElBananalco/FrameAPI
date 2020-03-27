@@ -18,46 +18,36 @@ import junit.framework.TestCase;
 public class Runner extends TestCase {
 
 	public static void main(String args[]) throws IOException {
-		// creamos run para ejecutar los TC
-		TestMethods run = new TestMethods();
-
-		// creamos este array para obtener todos los TC
+		
+		/** initialize the arrays to save the test cases */
 		ArrayList<TestData> ListaObjetosTestC = new ArrayList();
+     	ArrayList<TestData> ListaTemp = new ArrayList();
 
-		// Aqui se agregaran los TC que seleccionemos
-		ArrayList<TestData> ListaTemp = new ArrayList();
-
-		// creamos TC para leer el archivo Xlsx
+		/** create this object to read the file xlxs */
 		leer TC = new leer();
 
-		// Cargamos la ruta que querramos
+		/** This method save to url (Where the Test case is located) */
 		javax.swing.JFileChooser jF1 = new javax.swing.JFileChooser();
-
-		// aqui guardamos la ruta
-		String ruta = "";
+		String uri = "";
 		try {
 			if (jF1.showSaveDialog(null) == jF1.APPROVE_OPTION) {
-				// se guarda la ruta
-				ruta = jF1.getSelectedFile().getAbsolutePath();
+				
+				uri = jF1.getSelectedFile().getAbsolutePath();
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 
-		// se guardan los datos el excel a un arraylist
-		ListaObjetosTestC = TC.obtenerObjetos(ruta);
+		/** Save the Test cases in this array*/
+		ListaObjetosTestC = TC.obtenerObjetos(uri);
 
 		
-		// este arreglo guarda los nombres de los TC de las hojas del excel
-		String[] prueba ;
-		prueba=TC.getSheetsNames(ruta);
+		/** The array namesTc save to names the Test cases */
+		String[] namesTc ;
+		namesTc=TC.getSheetsNames(uri);
 
-		// creamos un arreglo de radiobuttons
+		/** this array saves the buttons that we will use */
 		JRadioButton[] radio = new JRadioButton[ListaObjetosTestC.size()];
-
-		
-
-		
 
 		String name = "";
 		// creamos la pantalla
@@ -74,9 +64,9 @@ public class Runner extends TestCase {
 		// en este for recorremos el arreglo de prueba para crear los radio button con
 		// los
 		// nonbres de los TC
-		for (int u = 0; u < prueba.length; u++) {
+		for (int u = 0; u < namesTc.length; u++) {
 			
-			name = prueba[u];
+			name = namesTc[u];
 			
 			if(name != null) {
 			JRadioButton button = new JRadioButton(name);
@@ -84,7 +74,6 @@ public class Runner extends TestCase {
 
 			// agregamos el radiobutton al panel
 			panel.add(radio[u]);}
-			else {}
 			
 
 		}
@@ -107,6 +96,7 @@ public class Runner extends TestCase {
 			}
 		}
 		
+		/*creamos los objetos para hacer el reporte y abrirlo*/
 		 OpenHtml openHtml=new OpenHtml();
 		 reportMethod report= new reportMethod();
 		
@@ -117,7 +107,7 @@ public class Runner extends TestCase {
 
 			} else {
 				// el metdodo obtenerTC carga al array la hoja que le mandamos
-				ListaTemp = TC.obtenerTC(ruta, cad[sheet]);
+				ListaTemp = TC.obtenerTC(uri, cad[sheet]);
 			
 			}
 

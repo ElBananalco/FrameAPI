@@ -32,7 +32,7 @@ public class TestMethods {
 			.body(Obj.getBody()).post();
 			code = resp.statusCode();
 			expected = Obj.getExpected();
-			path=Obj.getPath();
+			
 			statuscode=resp.getBody().asString();
          	return statuscode;
 		case "get":
@@ -41,7 +41,7 @@ public class TestMethods {
 			code = resp2.statusCode();
 			expected = Obj.getExpected();
 			statuscode= validationCode();
-			path=Obj.getPath();
+			
          	return statuscode;
          	
 		case "put":
@@ -66,17 +66,11 @@ public class TestMethods {
 	public String validationCode() {
 		if(expected==code) {
 			String result="";
-			//System.out.println("Test Case Pass "+name);
-//			System.out.println("Status code expected is "+expected);
-//			System.out.println("Status code is "+code);
 			result="Pass";
 			
 			return result;
 		}else {
 			String result="";
-//			System.out.println("Test Case Fail "+name);
-//			System.out.println("Status code expected is "+expected);
-//			System.out.println("Status code is "+code);
 			result="Fail";
 			
 			return result;
@@ -84,15 +78,5 @@ public class TestMethods {
 		
 	}
 	
-	public String testCases(TestData Obj){
-		String sheet="";
-		if( Obj.getNameTC()=="") {
 		
-		}else {
-			sheet = Obj.getNameTC();
-		}
-		
-		return sheet;
-	}
-	
 }
