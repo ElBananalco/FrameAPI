@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class TestMethods {
 
+	/**This method initialize the URI and Path for execute the Test Cases*/
 	public void classSetup(String URL, String path) {
 		try {
 			RestAssured.baseURI = URL;
@@ -17,14 +18,19 @@ public class TestMethods {
 		}
 	}
 	
-	public static int code;  
+	/** Variable used for the method validation code  */
+	public static int code;
+	/** Variable used for the method validation code  */
 	public static int expected;
+	/** Variable used for the method executionFila() */
 	public static String path; 
+	
+	/** This method execute the actions */
 	@Test
 	public String executionFile(TestData Obj) {
 		String statuscode="";
 	
-		switch(Obj.getAccion().toLowerCase()) {
+		switch(Obj.getAction().toLowerCase()) {
 			
 		case "post":
 			Response resp = RestAssured.given().header("Accept", "application/json")
@@ -32,7 +38,6 @@ public class TestMethods {
 			.body(Obj.getBody()).post();
 			code = resp.statusCode();
 			expected = Obj.getExpected();
-			
 			statuscode=resp.getBody().asString();
          	return statuscode;
 		case "get":
@@ -41,8 +46,7 @@ public class TestMethods {
 			code = resp2.statusCode();
 			expected = Obj.getExpected();
 			statuscode= validationCode();
-			
-         	return statuscode;
+			return statuscode;
          	
 		case "put":
 			path=Obj.getPath();
@@ -51,7 +55,6 @@ public class TestMethods {
 			.body(Obj.getBody()).put();
 			code = resp3.statusCode();
 			expected = Obj.getExpected();
-			
 			statuscode=resp3.getBody().asString();
          	return statuscode;
          	
@@ -63,6 +66,8 @@ public class TestMethods {
 
 	}
 	
+	
+	/** This method validate if the test cases pass or fail */
 	public String validationCode() {
 		if(expected==code) {
 			String result="";

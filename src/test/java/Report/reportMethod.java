@@ -9,20 +9,20 @@ import Frame.TestData;
 import Frame.TestMethods;
 
 public class reportMethod {
-	//Initialize FileWrite and PrintWriter to write HTML
+	/**Initialize FileWrite and PrintWriter to write HTML*/
 	FileWriter filewriter = null;
 	 PrintWriter printw = null;
-	 //We create a method to create a report
+	 /**We create a method to create a report*/
 	public void reportMaker(ArrayList<TestData> stepList) {
 		String tcname="";
 		tcname=stepList.get(0).nameTC;
-		//A printer is created
+		/**A printer is created*/
 		try{
-			//declare the file location
+			/**declare the file location*/
 		     filewriter = new FileWriter("src/test/java/Reporthtl/"+tcname+".html");
-		     //Create a print object to write the html code
+		     /**Create a print object to write the html code*/
 		     printw = new PrintWriter(filewriter);
-		     //Initialize the html doc 
+		     /**Initialize the html doc */
 		     printw.println("<html>");
 		     printw.println("<head><title>Reporte</title> "
 		     		+"<link rel=\"icon\" href=\"../img/Thanos.png\" />" + 
@@ -33,7 +33,7 @@ public class reportMethod {
 		     		+ "</head>");    
 		     printw.println("<body>");
 		    
-		     //navigation bar creation
+		     /**navigation bar creation*/
 		     printw.println("<nav class=\"navbar-custom\">" + 
 		     		"    <a class=\"navbar-brand\" href=\"#\">" + 
 		     		"      <img src=\"../img/iconfinder_JD-27_2624867.png\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\">" + 
@@ -41,7 +41,7 @@ public class reportMethod {
 		     		"    </a>" + 
 		     		"  </nav>");
 	
-		     //A table and their headers are created.
+		     /**A table and their headers are created.*/
 		     printw.println(" <div>" + 
 		     		"    <table class=\"table table-hover\">" + 
 		     		"        <thead>" + 
@@ -55,25 +55,25 @@ public class reportMethod {
 		     		"          </tr>" + 
 		     		"        </thead>"
 		     		);
-		     //All the steps from their respective test cases are printed by a for cycle
+		    
 		     TestMethods run = new TestMethods();
-		  // Asignamos la URI de la pagina
+		  /**Initialize the URL from scrum metrics */
 				String URL = "https://scrum-metrics.herokuapp.com/api";
 				
 					
-		     
+		     /**All the steps from their respective test cases are printed by a for cycle*/
 		     for(int i = 0; i < stepList.size(); i++)
 		     {	 String statusCode="";    
-		   //Obtenemos el PATH del excel
+		   /**Get the PATH from excel*/
 				String PATH = stepList.get(i).getPath();
 			
-				// Inicializamos la clase----------------------------------------------------------------
+				/**Initialize the Rest Assured*/
 				run.classSetup(URL, PATH);
 				
 		    	statusCode = run.executionFile(stepList.get(i));
 		    	 printw.println("<tbody>" + "<tr>");
 		    	 printw.println("<th scope=\"row\">" + stepList.get(i).nameTC + "</th>"+ 
-		    			 "<th scope=\"row\">" + stepList.get(i).expected + "/" + stepList.get(i).accion + "</th>"+ 
+		    			 "<th scope=\"row\">" + stepList.get(i).expected + "/" + stepList.get(i).action + "</th>"+ 
 		    	 		"<td>" + run.validationCode() + "</td>"+ 
 		    	 		"<td align=\"justify\">" + stepList.get(i).body + "</td>" + 
 		    	 		"<td>" + stepList.get(i).path + "</td>"	+ 
@@ -85,12 +85,15 @@ public class reportMethod {
 		    	 			
 		    	 	+ "</div>");
 		     }
-		     //we close the html code.
+		     /**we close the html code.*/
 		     printw.println("</body>");
 		     printw.println("</html>");
-		     printw.close();//we close the print object.
-		     System.out.println("Reporte generado exitosamente");//If everything success will send a console message.
-	}catch(IOException e){ //If it fails will send a message with the exception.
+		     printw.close();
+		     /**we close the print object.*/
+		     System.out.println("Reporte generado exitosamente");
+		     /**If everything success will send a console message.*/
+	}catch(IOException e){ 
+		/**If it fails will send a message with the exception.*/
 		e.getMessage();
 	}
 	}

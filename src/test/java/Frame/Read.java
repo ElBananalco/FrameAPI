@@ -13,18 +13,21 @@ import org.junit.Test;
 
 
 
-public class leer {
+public class Read {
 	static ArrayList<TestData> TC = new ArrayList();
 	static ArrayList<TestData> Names = new ArrayList();
 	static XSSFRow row;
 
+	
+	/** This method get the Test cases from file xlsx*/
 	@Test 
-	public ArrayList<TestData> obtenerObjetos(String URL) throws IOException {
+	public ArrayList<TestData> getObjects(String URL) throws IOException {
 
 		FileInputStream fis = new FileInputStream(new File(URL));
 
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		
+		/** get the quantity the sheets*/
 		 int Hojas = workbook.getNumberOfSheets(); 
 			XSSFSheet spreadsheet;
 			
@@ -34,9 +37,10 @@ public class leer {
 	 
 
 		int rows=0;
+		
+		/**get the quantity the rows*/
 		rows = spreadsheet.getLastRowNum()+1;
 
-		// Obtengo el número de columnas ocupadas en la hoja
 		int cols = 0;
 		
 		TestData aux;
@@ -45,6 +49,8 @@ public class leer {
 				double expected=0.0;
 				int exp=0;
 		
+				
+				/** This for create the object with the data from file xlsx**/
 		for (int r = 0; r < rows; r++) {
 			row = spreadsheet.getRow(r);
 			if(row.getLastCellNum()==0) {
@@ -111,14 +117,14 @@ public class leer {
 			
 			
 		}
-		//System.out.print(TC.toString());
+		
 		 }
 			
 		fis.close();
 		return TC;
 
 	}
-	////////////////////////////////////////
+	/** This method return the Sheet names*/
 	public String[] getSheetsNames(String URL) throws IOException {
 		 
 		 FileInputStream fis = new FileInputStream(new File(URL));
@@ -136,9 +142,9 @@ public class leer {
 		 return Sheetname;
 	 }
 	
-	//////////////////////////////////////////
+	/** This method return the array specifically with the sheet that we send */
 	@Test
-	public ArrayList<TestData> obtenerTC(String URL,String sheet) throws IOException {
+	public ArrayList<TestData> getTC(String URL,String sheet) throws IOException {
 
 		FileInputStream fis = new FileInputStream(new File(URL));
 
@@ -147,17 +153,14 @@ public class leer {
 		 int Hojas = workbook.getNumberOfSheets(); 
 			XSSFSheet spreadsheet;
 			
-			//recorremos las hojas-------------------------
-			//se recorrera con el tama;o del array de sheets
-	
-			 spreadsheet = workbook.getSheet(sheet);
+			spreadsheet = workbook.getSheet(sheet);
 		 
 
 
 		int rows=0;
 		 rows = spreadsheet.getLastRowNum()+1;
 
-		// Obtengo el número de columnas ocupadas en la hoja
+		
 		int cols = 0;
 		
 		TestData auxN;
@@ -227,9 +230,7 @@ public class leer {
 			path="";
 			
 		}
-		//System.out.print(TC.toString());
-		 
-			
+					
 		fis.close();
 		return Names;
 
