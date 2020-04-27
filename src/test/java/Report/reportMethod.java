@@ -15,7 +15,7 @@ public class reportMethod {
 	 /**We create a method to create a report*/
 	public void reportMaker(ArrayList<TestData> stepList) {
 		String tcname="";
-		tcname=stepList.get(1).nameTC;
+		tcname=stepList.get(0).nameTC;
 		/**A printer is created*/
 		try{
 			/**declare the file location*/
