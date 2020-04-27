@@ -21,7 +21,7 @@ public class Runner extends TestCase {
 
 		/** initialize the arrays to save the test cases */
 		ArrayList<TestData> ListObjectTestC = new ArrayList();
-		ArrayList<TestData> ListNew = new ArrayList();
+		ArrayList<ArrayList> ListNew = new ArrayList();
 
 		/** create this object to read the file xlxs */
 		Read TC = new Read();
@@ -46,13 +46,13 @@ public class Runner extends TestCase {
 		namesTc = TC.getSheetsNames(uri);
 
 		/** this array saves the buttons that we will use */
-		JRadioButton[] radio = new JRadioButton[ListObjectTestC.size()];
+		JRadioButton[] radio = new JRadioButton[namesTc.length];
 
 		/** We create a Panel(Interface) */
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		JLabel label = new JLabel();
-		label.setText("Wich Test Cases wish execute");
+		label.setText("Which Test Cases wish execute");
 		panel.add(label);
 		panel.setBounds(10, 10, 375, 150);
 
@@ -65,6 +65,10 @@ public class Runner extends TestCase {
 				JRadioButton button = new JRadioButton(name);
 				radio[u] = button;
 				panel.add(radio[u]);
+			}
+			
+			if(radio[u] == null) {
+				panel.remove(radio[u]);
 			}
 
 		}
@@ -83,6 +87,10 @@ public class Runner extends TestCase {
 			}
 		}
 
+		/** Create the objects for open and execute the report */
+		OpenHtml openHtml = new OpenHtml();
+		reportMethod report = new reportMethod();
+		
 		/** Save the selected test cases in array ListNew using the method getTC. */
 		for (int sheet = 0; sheet < tcSelected.length; sheet++) {
 
@@ -90,19 +98,20 @@ public class Runner extends TestCase {
 
 			} else {
 
-				ListNew = TC.getTC(uri, tcSelected[sheet]);
+				/** Send the ListNew for generate the report*/
+				report.reportMaker(TC.getTC(uri, tcSelected[sheet]));
+				/** Opens the report */
+				openHtml.OpenHtml(tcSelected[sheet]);
+
+				
+				
 			}
 		}
 
-		/** Create the objects for open and execute the report */
-		OpenHtml openHtml = new OpenHtml();
-		reportMethod report = new reportMethod();
 		
-		/** Send the ListNew for generate the report*/
-		report.reportMaker(ListNew);
-		/** Opens the report */
-		openHtml.OpenHtml(ListNew.get(0).getNameTC());
-
+		
+		
+		
 	}
 
 }

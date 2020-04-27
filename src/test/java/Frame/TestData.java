@@ -12,8 +12,12 @@ public class TestData {
 	/**The path that we will use*/
 	public String path;
 	
-	/** The constructor save the data from file xlxs*/
-	public TestData(String nameTC, String action, String body, int expected,String path) {
+	public int step;
+	
+	/** The constructor save the data from file xlxs
+	 * @param nameTC */
+	public TestData(int step, String action, String body, int expected,String path, String nameTC) {
+		this.step=step;
 		this.action=action;
 		this.body=body;
 		this.expected=expected;
@@ -21,6 +25,20 @@ public class TestData {
 		this.path=path;
 	}
 	
+	
+	
+	public int getStep() {
+		return step;
+	}
+
+
+
+	public void setStep(int step) {
+		this.step = step;
+	}
+
+
+
 	/**Get the action*/
 	public String getAction() {
 		return action;

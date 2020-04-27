@@ -1,0 +1,25 @@
+<html>
+<head><title>Reporte</title> <link rel="icon" href="../img/Thanos.png" /><link rel="stylesheet" href="../css/bootstrap.min.css"><link rel="stylesheet" href="../css/estilos.css"><script src="../js/jquery-3.4.1.min.js"></script><script src="../js/bootstrap.min.js"></script></head>
+<body>
+<nav class="navbar-custom">    <a class="navbar-brand" href="#">      <img src="../img/iconfinder_JD-27_2624867.png" width="40" height="40" class="d-inline-block align-top">      Thanos Framework    </a>  </nav>
+ <div>    <table class="table table-hover">        <thead>          <tr>            <th scope="col">Test Case Name</th>            <th scope="col">Expected/Accion</th>            <th scope="col">Status</th>            <th>Body</th>            <th>Path</th>			<th>Status Code Return</th>          </tr>        </thead>
+<tbody><tr>
+<th scope="row">API_PC_AP_001</th><th scope="row">201/post</th><td>Fail</td><td align="justify">{"name":"ProjectAPI","description":"Test the APIs","start_date":"17/03/2020","end_date":"30/03/2020","image":"vboxShwUsuarios-P1.png"}</td><td>postproject</td><td align="justify">{"error":true,"code":500,"message":{"code":"ER_TRUNCATED_WRONG_VALUE","errno":1292,"sqlMessage":"Incorrect date value: '17/03/2020' for column 'start_date' at row 1","sqlState":"22007","index":0,"sql":"INSERT INTO project (name,description,start_date,end_date,image) VALUES('ProjectAPI','Test the APIs','17/03/2020','30/03/2020','vboxShwUsuarios-P1.png')"}}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_PC_AP_002</th><th scope="row">201/post</th><td>Fail</td><td align="justify">{"name":"ProjectAPIAuto","description":"Test the APIs","start_date":"2020-09-29","end_date":"2020-10-23","image":null}</td><td>postproject</td><td align="justify">{"error":true,"code":409,"message":"Name already in use"}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_PC_AP_003</th><th scope="row">201/post</th><td>Fail</td><td align="justify">{"name":"ProjectAPIAuto2","description":"Test the APIs","start_date":"2020-09-29","end_date":null,"image":null}</td><td>postproject</td><td align="justify">{"error":true,"code":409,"message":"Name already in use"}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_PC_AN_004</th><th scope="row">200/post</th><td>Fail</td><td align="justify">{"name":"Api","description":"Test the APIs","start_date":"2020-09-29","end_date":"2020-10-23","image":"vboxShwUsuarios-P1.png"}</td><td>postproject</td><td align="justify">{"error":true,"code":409,"message":"Name already in use"}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_PC_AN_005</th><th scope="row">500/post</th><td>Pass</td><td align="justify">{"name":null,"description":"Test the APIs","start_date":"2020-09-29","end_date":"2020-10-23","image":"vboxShwUsuarios-P1.png"}</td><td>postproject</td><td align="justify">{"error":true,"code":500,"message":{"code":"ER_BAD_NULL_ERROR","errno":1048,"sqlMessage":"Column 'name' cannot be null","sqlState":"23000","index":0,"sql":"INSERT INTO project (name,description,start_date,end_date,image) VALUES(NULL,'Test the APIs','2020-09-29','2020-10-23','vboxShwUsuarios-P1.png')"}}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_PC_AN_006</th><th scope="row">500/post</th><td>Fail</td><td align="justify">{"name":"APIAUTOMATION3","description":"Test the APIs","start_date":"2020-11-29","end_date":"2020-10-23","image":"vboxShwUsuarios-P1.png"}</td><td>postproject</td><td align="justify">{"error":true,"code":409,"message":"Name already in use"}</td>
+</div>
+</body>
+</html>

@@ -2,18 +2,15 @@
 <head><title>Reporte</title> <link rel="icon" href="../img/Thanos.png" /><link rel="stylesheet" href="../css/bootstrap.min.css"><link rel="stylesheet" href="../css/estilos.css"><script src="../js/jquery-3.4.1.min.js"></script><script src="../js/bootstrap.min.js"></script></head>
 <body>
 <nav class="navbar-custom">    <a class="navbar-brand" href="#">      <img src="../img/iconfinder_JD-27_2624867.png" width="40" height="40" class="d-inline-block align-top">      Thanos Framework    </a>  </nav>
- <div>    <table class="table table-hover">        <thead>          <tr>            <th scope="col">Test Case Name</th>            <th scope="col">Expected/Accion</th>            <th scope="col">Status</th>            <th>Body</th>            <th>Path</th>			<th>Status Code Return</th>          </tr>        </thead>
+ <div>    <table class="table table-hover">        <thead>          <tr>            <th scope="col">Step</th>            <th scope="col">Expected/Accion</th>            <th scope="col">Status</th>            <th>Body</th>            <th>Path</th>			<th>Status Code Return</th>          </tr>        </thead>
 <tbody><tr>
-<th scope="row">API_L_AP_001</th><th scope="row">201/post</th><td>Fail</td><td align="justify">{"username":"IvanC","password":"Hex4ware!!!"}</td><td>login</td><td align="justify">{"error":false,"code":200,"message":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODUxNzY4MDAsInBheWxvYWQiOnsic3ViamVjdCI6Ikl2YW5DIn0sImlhdCI6MTU4NTE3MzIwMH0.4L6rRpJsPeejTSJg2peXkqhH5tpacQLS5-9aVewwsDc"}</td>
+<th scope="row">0</th><th scope="row">0/</th><td>Pass</td><td align="justify"></td><td></td><td align="justify">error desconocido</td>
 </div>
 <tbody><tr>
-<th scope="row">API_L_AN_002</th><th scope="row">200/post</th><td>Fail</td><td align="justify">{"username":"Ivan","password":"Hex4ware!!!"}</td><td>login</td><td align="justify">{"error":true,"code":404,"message":"User not found"}</td>
+<th scope="row">1</th><th scope="row">201/post</th><td>Pass</td><td align="justify">{"username":"IvanC","password":"Hex4ware!!!"}</td><td>login</td><td align="justify">{"error":false,"code":201,"message":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODgwMDUyNzksInBheWxvYWQiOnsic3ViamVjdCI6Ikl2YW5DIn0sImlhdCI6MTU4ODAwMTY3OX0.YaBzwjjPd9oSjzjqRcRAmtFnXufJvnOBQr_kQe_MaEY"}</td>
 </div>
 <tbody><tr>
-<th scope="row">API_L_AN_003</th><th scope="row">200/post</th><td>Fail</td><td align="justify">{"username":"IvanC","password":"Hex4ware"}</td><td>login</td><td align="justify">{"error":true,"code":400,"message":"Incorrect password"}</td>
-</div>
-<tbody><tr>
-<th scope="row">API_L_AN_004</th><th scope="row">400/post</th><td>Pass</td><td align="justify">{"username":"","password":"Hex4ware"}</td><td>login</td><td align="justify">{"error":true,"code":400,"message":"Missing data"}</td>
+<th scope="row">2</th><th scope="row">201/post</th><td>Pass</td><td align="justify">{"username":"IvanC","password":"Hex4ware!!!"}</td><td>login</td><td align="justify">{"error":false,"code":201,"message":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODgwMDUyODAsInBheWxvYWQiOnsic3ViamVjdCI6Ikl2YW5DIn0sImlhdCI6MTU4ODAwMTY4MH0.i-XqQ6Xva9IvpOWz8756CwCLfozoaHL_TOmTFJq6sDY"}</td>
 </div>
 </body>
 </html>

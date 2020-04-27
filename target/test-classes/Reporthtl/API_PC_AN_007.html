@@ -1,0 +1,22 @@
+<html>
+<head><title>Reporte</title> <link rel="icon" href="../img/Thanos.png" /><link rel="stylesheet" href="../css/bootstrap.min.css"><link rel="stylesheet" href="../css/estilos.css"><script src="../js/jquery-3.4.1.min.js"></script><script src="../js/bootstrap.min.js"></script></head>
+<body>
+<nav class="navbar-custom">    <a class="navbar-brand" href="#">      <img src="../img/iconfinder_JD-27_2624867.png" width="40" height="40" class="d-inline-block align-top">      Thanos Framework    </a>  </nav>
+ <div>    <table class="table table-hover">        <thead>          <tr>            <th scope="col">Test Case Name</th>            <th scope="col">Expected/Accion</th>            <th scope="col">Status</th>            <th>Body</th>            <th>Path</th>			<th>Status Code Return</th>          </tr>        </thead>
+<tbody><tr>
+<th scope="row">API_PC_AN_007</th><th scope="row">500/post</th><td>Pass</td><td align="justify">{"name":"APIAUTOMATION4","description":"Test the APIs","start_date":null,"end_date":"2020-10-23","image":"vboxShwUsuarios-P1.png"}</td><td>postproject</td><td align="justify">{"error":true,"code":500,"message":{"code":"ER_BAD_NULL_ERROR","errno":1048,"sqlMessage":"Column 'start_date' cannot be null","sqlState":"23000","index":0,"sql":"INSERT INTO project (name,description,start_date,end_date,image) VALUES('APIAUTOMATION4','Test the APIs',NULL,'2020-10-23','vboxShwUsuarios-P1.png')"}}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_PC_AN_008</th><th scope="row">500/post</th><td>Pass</td><td align="justify">{"name":"APIAUTOMATION5","description":null,"start_date":"2020-09-29","end_date":"2020-10-23","image":"vboxShwUsuarios-P1.png"}</td><td>postproject</td><td align="justify">{"error":true,"code":500,"message":{"code":"ER_BAD_NULL_ERROR","errno":1048,"sqlMessage":"Column 'description' cannot be null","sqlState":"23000","index":0,"sql":"INSERT INTO project (name,description,start_date,end_date,image) VALUES('APIAUTOMATION5',NULL,'2020-09-29','2020-10-23','vboxShwUsuarios-P1.png')"}}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_PC_AN_009</th><th scope="row">500/post</th><td>Fail</td><td align="justify">{"name":"AUTOMAT","description":"test the APIs","start_date":"2020-09-29","end_date":"2020-10-23","image":"vboxShwUsuarios-P1.png"}</td><td>postproject</td><td align="justify">{"error":false,"code":200,"message":"Project created succesfully"}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_PC_AN_010</th><th scope="row">500/post</th><td>Fail</td><td align="justify">{"name":"APIAUTO6","description":"test","start_date":"2020-09-29","end_date":"2020-10-23","image":"vboxShwUsuarios-P1.png"}</td><td>postproject</td><td align="justify">{"error":false,"code":200,"message":"Project created succesfully"}</td>
+</div>
+<tbody><tr>
+<th scope="row">API_PC_AN_011</th><th scope="row">500/post</th><td>Pass</td><td align="justify">{"name":"APIAUTOMATAPIAUTOMATAPIAUTOMATAPIAUTOMATAPIAUTOMATAPIAUTOMAT7","description":"test","start_date":"2020-09-29","end_date":"2020-10-23","image":"vboxShwUsuarios-P1.png"}</td><td>postproject</td><td align="justify">{"error":true,"code":500,"message":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlMessage":"Data too long for column 'name' at row 1","sqlState":"22001","index":0,"sql":"INSERT INTO project (name,description,start_date,end_date,image) VALUES('APIAUTOMATAPIAUTOMATAPIAUTOMATAPIAUTOMATAPIAUTOMATAPIAUTOMAT7','test','2020-09-29','2020-10-23','vboxShwUsuarios-P1.png')"}}</td>
+</div>
+</body>
+</html>

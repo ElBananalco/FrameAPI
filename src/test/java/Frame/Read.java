@@ -44,7 +44,7 @@ public class Read {
 		int cols = 0;
 		
 		TestData aux;
-		
+		double step=0.0;
 		String Body = "",accion="",nameTc="",path="";
 				double expected=0.0;
 				int exp=0;
@@ -65,7 +65,7 @@ public class Read {
 						switch (c) {
 						
 						case 0:
-							nameTc = row.getCell(c).getStringCellValue();
+							step = row.getCell(c).getNumericCellValue();
 							//System.out.print(nameTc);
 							break;
 
@@ -99,8 +99,9 @@ public class Read {
 				}
 			}
 			
-			
-			aux = new TestData(nameTc,accion,Body,exp,path);
+			int stepAux=(int)step;
+			nameTc=workbook.getSheetName(i);
+			aux = new TestData(stepAux,accion,Body,exp,path,nameTc);
 			if(aux.getNameTC()=="") {
 				
 			}else {
@@ -111,6 +112,8 @@ public class Read {
 				Body="";
 				exp=0;
 				path="";
+				step=0;
+				stepAux=0;
 				
 			}
 				
@@ -164,7 +167,7 @@ public class Read {
 		int cols = 0;
 		
 		TestData auxN;
-		
+		double step=0.0;
 		String Body = "",accion="",nameTc="",path="";
 		double expected=0.0;
 		int exp=0;
@@ -182,7 +185,7 @@ public class Read {
 						switch (c) {
 						
 						case 0:
-							nameTc = row.getCell(c).getStringCellValue();
+							step = row.getCell(c).getNumericCellValue();
 							//System.out.print(nameTc);
 							break;
 
@@ -216,8 +219,9 @@ public class Read {
 				}
 			}
 			
-			
-			auxN = new TestData(nameTc,accion,Body,exp,path);
+			int stepAux=(int)step;
+			nameTc=sheet;
+			auxN = new TestData(stepAux,accion,Body,exp,path,nameTc);
 			if(auxN.getNameTC()=="") {
 					
 			}else
@@ -228,9 +232,18 @@ public class Read {
 			Body="";
 			exp=0;
 			path="";
+			step=0.0;
+			stepAux=0;
+			
+			
 			
 		}
-					
+		for(int index=0;index<Names.size();index++) {
+		
+		if(Names.get(index).getStep() == 0) {
+		Names.remove(index);
+		}
+		}
 		fis.close();
 		return Names;
 

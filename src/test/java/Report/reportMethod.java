@@ -15,7 +15,7 @@ public class reportMethod {
 	 /**We create a method to create a report*/
 	public void reportMaker(ArrayList<TestData> stepList) {
 		String tcname="";
-		tcname=stepList.get(0).nameTC;
+		tcname=stepList.get(1).nameTC;
 		/**A printer is created*/
 		try{
 			/**declare the file location*/
@@ -46,7 +46,7 @@ public class reportMethod {
 		     		"    <table class=\"table table-hover\">" + 
 		     		"        <thead>" + 
 		     		"          <tr>" + 
-		     		"            <th scope=\"col\">Test Case Name</th>" + 
+		     		"            <th scope=\"col\">Step</th>" + 
 		     		"            <th scope=\"col\">Expected/Accion</th>" + 
 		     		"            <th scope=\"col\">Status</th>" + 
 		     		"            <th>Body</th>" + 
@@ -72,7 +72,7 @@ public class reportMethod {
 				
 		    	statusCode = run.executionFile(stepList.get(i));
 		    	 printw.println("<tbody>" + "<tr>");
-		    	 printw.println("<th scope=\"row\">" + stepList.get(i).nameTC + "</th>"+ 
+		    	 printw.println("<th scope=\"row\">" + stepList.get(i).step + "</th>"+ 
 		    			 "<th scope=\"row\">" + stepList.get(i).expected + "/" + stepList.get(i).action + "</th>"+ 
 		    	 		"<td>" + run.validationCode() + "</td>"+ 
 		    	 		"<td align=\"justify\">" + stepList.get(i).body + "</td>" + 
