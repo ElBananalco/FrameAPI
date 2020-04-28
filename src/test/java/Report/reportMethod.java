@@ -60,7 +60,12 @@ public class reportMethod {
 		  /**Initialize the URL from scrum metrics */
 				String URL = "https://scrum-metrics.herokuapp.com/api";
 				
+				for(int index=0;index<stepList.size();index++) {
 					
+					if(stepList.get(index).getStep() == 0) {
+						stepList.remove(index);
+					}
+					}
 		     /**All the steps from their respective test cases are printed by a for cycle*/
 		     for(int i = 0; i < stepList.size(); i++)
 		     {	 String statusCode="";    

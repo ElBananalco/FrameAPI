@@ -122,6 +122,12 @@ public class Read {
 		}
 		
 		 }
+		 for(int index=0;index<TC.size();index++) {
+				
+				if(TC.get(index).getStep() == 0) {
+				TC.remove(index);
+				}
+				}
 			
 		fis.close();
 		return TC;
